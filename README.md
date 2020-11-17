@@ -32,7 +32,7 @@ Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden 
 
 An der Vorderseite der Ladebox sind die Bedienelemente und die Typ2-Steckdose angeordnet. Links oben befinden sich zwei Drucktaster zum Einstellen der gewünschten Stromstärke und zum Starten des Ladevorgangs. Mit dem großen Drehschalter rechts wird zwischen den beiden Steckern gewählt. Dieser ist eigentlich überdimensioniert, ist aber ein Relikt von Version 1 der Ladebox, bei welcher der gesamte Ladestrom über diesen Schalter floss. Bei Version 2 fließt nur noch der Versorgungsstrom für die Ladeelektronik über den Schalter, daher reicht nun auch ein kleineres Modell. In der Teile-Liste habe ich einen Kippschalter anstatt des Drehschalters eingefügt.
 
-Als Anzeigeelemente stehen 9 grüne LEDs zur Verfügung, welche ringförmig um die Typ2-Steckdose angeordnet sind. 5 davon stehen für die 5 möglichen Stromstärken und die restlichen 3 zeigen den Status der Ladebox an. 
+Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um die Typ2-Steckdose angeordnet sind. 5 davon stehen für die 5 möglichen Stromstärken und die restlichen 3 zeigen den Status der Ladebox an. 
 
 Die Bedienung gestaltet sich folgendermaßen:
 
