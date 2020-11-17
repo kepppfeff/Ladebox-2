@@ -2,6 +2,8 @@
 
 Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vor, welche für Ladeleistungen bis 22 kW (32 A dreiphasig) ausgelegt ist. Vom Gehäuse über die Elektronik (auch EVSE genannt) bis hin zur Software (Firmware) habe ich alles selbst entwickelt bzw. zusammengebaut. Für die Steuerung ist ein Arduino Nano Board (mit Atmega328P Mikrocontroller) zuständig. 
 
+**Zusammenbau und Betrieb der Ladebox erfolgen auf eigene Gefahr! Wird die Planung und der Bau einer Ladebox nicht sorgfältig und fachgerecht durchgeführt oder werden die nötigen Sicherheitsvorkehrungen weggelassen, besteht bei der Verwendung der Ladebox Lebensgefahr durch die Entstehung von Bränden oder elektrischen Schlägen!**
+
 ![ZOE Box](/Bilder/ZOE%20Box.jpg)
 
 Die Ladebox hat folgende Funktionen / Merkmale:
@@ -27,7 +29,7 @@ Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der
 
 Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de sowie unter kepppfeff@t-online.de zur Verfügung.
 
-Im Folgenden eine etwas genauere Beschreibung der Ladebox.
+### Gehäuse und Bedienkonzept
 
 Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich dadurch abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
 Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden.
@@ -51,4 +53,20 @@ Die Bedienung gestaltet sich folgendermaßen:
  - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde, wird das Schütz bzw. werden die Relais deaktiviert und alle LEDs leuchten, der Typ2-Stecker wird aber noch nicht entriegelt. So ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann.
  - Sobald der Ladestecker am Elektroauto abgezogen wurde, wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
 
-Abschließend noch ein Hinweis zur Elektronik: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier bislang sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz ausgegeben wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
+### Elektrik + Elektronik
+
+Der Zusammenbau von netzspannungsführenden Teilen darf grundsätzlich nur von ausgebildeten Fachkräften durchgeführt werden. An jeder Stelle muss sorgfältig auf eine ausreichende Dimensionierung von elektrischen Komponenten und Leitungsquerschnitten und eine Minimierung von Übergangswiderständen geachtet werden. Bei flexiblen Leitern ist die Verwendung von Aderendhülsen notwendig (Ausnahme WAGO-Klemmen und sonstige Federklemmen). Vor Inbetriebnahme muss durch Messungen mit entsprechendem Messequipment sichergestellt werden, dass alle relevanten Anforderungen eingehalten werden. 
+
+Bei den Leitungen für 32 A habe ich einen Leitungsquerschnitt von 4 mm² verwendet. Dies entspricht auch dem Typ2-Ladekabel unseres Elektroautos. Da das Auto einen kleinen Akku hat und daher maximal eine Stunde lang mit den vollen 22 kW laden kann, halte ich diesen Querschnitt für in Ordnung. Wenn die 22 kW aber auch für längere Zeit bereitgestellt werden sollen, würde ich zu einen Leitungsquerschnitt von 6 mm² raten. 
+
+Die Elektronik habe ich auf zwei Lochrasterplatinen entsprechend der Seiten des Schaltplans verteilt: eine Netzplatine und eine Steuerplatine. Um netzspannungsführende Leiterbahnen herum habe ich immer zwei Lochreihen Abstand gelassen und dort die Kupferpads weggefräst, um eine ausreichende Isolierung sicherzustellen.
+
+Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregler, der große Kondensator und die einsteckbaren Bauteile.
+
+![Steuerplatine](/Bilder/20190227_115933.jpg)
+
+Noch ein Hinweis zur Rechtecksignal-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
+
+### Zukunft
+
+Ich hatte eigentlich geplant, die Lochrasterplatine irgendwann durch eine professionell gefertigte Leiterplatte zu ersetzen (aber die Schaltung beizubehalten), doch leider bin ich bislang nicht dazu gekommen. Inzwischen tendiere ich eher dazu, lieber eine neue Version mit mehr Funktionen und einigen Verbesserungen zu entwickeln und diese dann direkt mit "richtiger Leiterplatte" zu fertigen. Es ist aber leider noch nicht abzusehen, ob und wann ich dazu komme.
