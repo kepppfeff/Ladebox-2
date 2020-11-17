@@ -1,4 +1,4 @@
-# Mobile Elektroauto-Ladebox mit Arduino
+# Mobile Elektroauto-Ladebox (V2) mit Arduino
 
 Bei diesem Projekt handelt es sich um eine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge. Vom Gehäuse über die Elektronik (EVSE genannt) bis hin zur Firmware des Mikrocontrollers habe ich alles selbst entwickelt bzw. zusammengebaut. Für die Steuerung ist ein Arduino Nano Board (mit Atmega328P Mikrocontroller) zuständig.
 
@@ -9,6 +9,7 @@ Die Ladebox dient zur Ladung an folgenden Steckdosen:
 - CEE16 rot bis 11 kW (über Adapterkabel)
 - CEE16 blau bis 3,7 kW
 - Schuko bis 2,3 kW (über Adapterkabel) 
+
 Das Alleinstellungsmerkmal dieser Ladebox ist, dass bereits zwei Stecker direkt an der Ladebox vorhanden sind, welche ohne Adapter genutzt werden können.  
 
 Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der die Box nachgebaut bzw. weiterentwickelt werden kann:
