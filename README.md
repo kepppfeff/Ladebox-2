@@ -65,8 +65,10 @@ Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregl
 
 ![Steuerplatine](/Bilder/20190227_115933.jpg)
 
+Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach.
+
 Noch ein Hinweis zur Rechtecksignal-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
 
 ### Zukunft
 
-Ich hatte eigentlich geplant, die Lochrasterplatine irgendwann durch eine professionell gefertigte Leiterplatte zu ersetzen (aber die Schaltung beizubehalten), doch leider bin ich bislang nicht dazu gekommen. Inzwischen tendiere ich eher dazu, lieber eine neue Version mit mehr Funktionen und einigen Verbesserungen zu entwickeln und diese dann direkt mit "richtiger Leiterplatte" zu fertigen. Es ist aber leider noch nicht abzusehen, ob und wann ich dazu komme.
+Ich hatte eigentlich geplant, die Lochrasterplatine irgendwann durch eine professionell gefertigte Leiterplatte zu ersetzen (aber die Schaltung beizubehalten), doch leider bin ich bislang nicht dazu gekommen. Inzwischen tendiere ich eher dazu, lieber eine neue Version mit mehr Funktionen und einigen Verbesserungen zu entwickeln und diese dann direkt mit "richtiger Leiterplatte" zu fertigen. Es ist aber leider noch nicht abzusehen, ob und wann ich dazu komme. Im GoingElectric-Forum werde ich Euch selbstverständlich über weitere Entwicklungen auf dem Laufenden halten.
