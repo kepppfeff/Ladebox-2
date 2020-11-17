@@ -61,7 +61,7 @@ Bei den Leitungen für 32 A habe ich einen Leitungsquerschnitt von 4 mm² verwen
 
 Die Elektronik habe ich auf zwei Lochrasterplatinen entsprechend der Seiten des Schaltplans verteilt: eine Netzplatine und eine Steuerplatine. Um netzspannungsführende Leiterbahnen herum habe ich immer zwei Lochreihen Abstand gelassen und dort die Kupferpads weggefräst, um eine ausreichende Isolierung sicherzustellen.
 
-Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregler, der große Kondensator und die einsteckbaren Bauteile.
+Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregler, der große Kondensator für die Steckerverriegelung und die einsteckbaren Bauteile (Arduino, Ladungspumpe, Komparator, OpAmp).
 
 ![Steuerplatine](/Bilder/20190227_115933.jpg)
 
