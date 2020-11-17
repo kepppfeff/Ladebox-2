@@ -86,8 +86,8 @@ const byte PULSWEITE [5] = {   42,   58,   68,   85,   136   };    // 10 A, 13,5
 #define A_CP_PLUS         A6  // Messung positiver Spannungen am CP-Pin zur Ermittlung des Status des Elektrofahrzeugs
 #define A_CP_MINUS        A7  // Messung negativer Spannungen am CP-Pin zur Überprüfung der korrekten Kommunikation
 #define A_PP              A0  // Messung des im Ladekabel eingebauten Widerstandes zwischen PP und PE
-#define I_TASTER_START    10  // Taster zur Auswahl der gewünschten Stromstärke
-#define I_TASTER_STROM     9  // Taster zum Starten des Ladevorgangs
+#define I_TASTER_START    10  // Taster zum Starten des Ladevorgangs
+#define I_TASTER_STROM     9  // Taster zur Auswahl der gewünschten Stromstärke
 // Wenn die Pinbelegung variiert werden soll, müssen folgende Dinge beachtet werden:
 // - Pins A6 und A7 sind nur als ADC-Eingänge nutzbar, nicht als digitale I/O.
 // - Das Pilotsignal (PWM) kann nur an den Pins 5 oder 6 ausgegeben werden (nur hier steht die benötigte Frequenz zur Verfügung).
