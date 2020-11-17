@@ -15,7 +15,7 @@ Das Alleinstellungsmerkmal dieser Ladebox ist, dass bereits zwei Stecker direkt 
 Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der die Box nachgebaut bzw. weiterentwickelt werden kann:
 - Schaltplan im pdf-Format sowie die zugehörigen KiCAD-Dateien (nur schematic; ein PCB-Layout gibt es bislang nicht, da ich alles auf Lochrasterplatinen zusammengelötet habe)
 - Programmcode für die Arduino-IDE zum Flashen des Mikrocontrollers (ich habe mich bemüht, alles zu kommentieren, sodass alles selbsterklärend sein sollte)
-- Excel-Liste mit allen benötigten Teilen
+- Excel-Liste mit allen benötigten Teilen und Links zu Bezugsquellen (kann auch im Browser angesehen werden: https://1drv.ms/x/s!AtqpgKTCo4sfsErbr3rMgM7kWvw-?e=OKO3dO)
 - CAD-Datei zum 3D-Druck der Steckerhalterung für CEE32 rot und CEE16 blau
 
 Bei Fragen und Anregungen stehe ich unter kepppfeff@t-online.de jederzeit zur Verfügung.
