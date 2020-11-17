@@ -4,7 +4,7 @@ Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vo
 
 Die Ladebox hat folgende Funktionen / Merkmale:
 - Sie verfügt zusätzlich zum CEE32 rot Stecker über einen fix angebrachten CEE16 blau Anschlussstecker, somit entfällt das Hintereinanderstecken mehrerer Adapterkabel.
-- Flexible Wahl des Ladestroms per Taster und LEDs in fünf Schritten: 10 A, 14 A, 16 A, 20 A, 32 A (selbstverständlich in der Software anpassbar).
+- Flexible Wahl des Ladestroms per Taster und LEDs in fünf Schritten: 10 A, 14 A, 16 A, 20 A, 32 A (die Werte sind im Programmcode anpassbar).
 - Die Verriegelung der Typ2-Steckdose verhindert nicht nur ein Abziehen des Typ2-Steckers unter Last, sondern schützt auch die Ladebox vor Diebstahl. Hierzu  wird die Steckdose nicht automatisch bei Stromausfall (bzw. Trennen des Netzsteckers) entriegelt, wie es bei gängigen Ladesteuerungen der Fall ist, sondern erst nach Trennen der Typ2-Steckverbindung am Elektrofahrzeug.
 - Ladestrom-Signalisierung nach SAE J1772 bzw. IEC 61851 (siehe https://www.goingelectric.de/wiki/Typ2-Signalisierung-und-Steckercodierung/) mit +/- 12V Rechtecksignal und Erkennung aller möglicher (mir bekannter) Signalisierungsfehler, z.B. Diodenfehler, Kurzschluss/"Status E", undefinierte Spannung. Die Art des Fehlers wird über Blinkimpulse der Fehler-LED ausgegeben.
 - Schutz vor Gleichfehlerströmen ab 6 mA mittels Fehlerstromschutzschalter Typ A-EV (teuerstes Bauteil der Ladebox).
