@@ -32,13 +32,13 @@ Im Folgenden eine etwas genauere Beschreibung der Ladebox.
 Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich dadurch abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
 Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden.
 
-![Rückseite](/Bilder/ZOE%20Box%20Rückseite.jpg)
+![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
 
 An der Vorderseite der Ladebox sind die Bedienelemente und die Typ2-Steckdose angeordnet. Links oben befinden sich zwei Drucktaster zum Einstellen der gewünschten Stromstärke und zum Starten des Ladevorgangs. Mit dem großen Drehschalter rechts wird zwischen den beiden Steckern gewählt. Dieser ist eigentlich überdimensioniert, ist aber ein Relikt von Version 1 der Ladebox, bei welcher der gesamte Ladestrom über diesen Schalter floss. Bei Version 2 fließt nur noch der Versorgungsstrom für die Ladeelektronik über den Schalter, daher reicht nun auch ein kleineres Modell. In der Teile-Liste habe ich einen Kippschalter anstatt des Drehschalters eingefügt.
 
 Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um die Typ2-Steckdose angeordnet sind. 5 davon stehen für die 5 möglichen Stromstärken und die restlichen 3 zeigen den Status der Ladebox an. 
 
-![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite.jpg)
+![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite.JPG)
 
 Die Bedienung gestaltet sich folgendermaßen:
 
