@@ -36,11 +36,13 @@
 
 #define CP_TIMEOUT 800  // gibt an, nach welcher Zeit (in Millisekunden) ein Ladevorgang abgebrochen wird, wenn der Status des E-Autos nicht ermittelt werden kann.
 
-// Durch die folgenden Werte werden die ADC-Messwerte dividiert, um die Spannung am CP-Pin zu erhalten.
+// Durch die folgenden Werte werden die ADC-Messwerte (10 Bit, also zwischen 0 und 1023) dividiert, um die Spannung am CP-Pin zu erhalten. Da alle Widerstände und die
+// Versorgungsspannungen gewissen Toleranzen unterliegen, ist hier ggf. eine Anpassung erforderlich. Zur Kalibrierung kann sehr gut die Debug-Schnittstelle verwendet werden.
+// Damit die Berechnung mit Gleitkommazahlen erfolgt, darf die Nachkommastelle auch bei einem glatten Wert nicht weggelassen werden, also nicht z.B. 74 schreiben, sondern 74.0
 #define CP_PLUS_FAKTOR 73.3
 #define CP_MINUS_FAKTOR 74.9
 
-#define AN LOW  // gibt an, wie die Pins geschaltet werden müssen, um die LEDs einzuschalten.
+#define AN LOW  // gibt an, wie die Pins geschaltet werden müssen, um die LEDs einzuschalten (HIGH oder LOW).
 
 #define DREIPHASIG HIGH  // gibt an, wie das Logiksignal des Wahlschalters interpretiert wird.
 
@@ -61,7 +63,7 @@ const byte PULSWEITE [5] = {   42,   58,   68,   85,   136   };    // 10 A, 13,5
 #define MAX_TEMPERATUR  60  // Bei Überschreitung wird ein Fehler in der Ladebox vermutet, der eine Überhitzung verursacht. Ladevorgang wird abgebrochen.
 #define MIN_TEMPERATUR -10  // Bei Unterschreitung wird ein Fehler des Temperatursensors vermutet, welcher behoben werden muss. Ladevorgang wird abgebrochen.
 
-// Werte zur Kalibrierung des Temperatursensors:
+// Werte zur Kalibrierung des Temperatursensors (bei Bedarf im Internet recherchieren, aber normalerweise kann das so bleiben, da die Messung sowieso recht ungenau ist):
 #define TEMP_OFFSET 324.3
 #define TEMP_GAIN 1.22
 
