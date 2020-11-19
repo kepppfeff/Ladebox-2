@@ -1,8 +1,8 @@
 # Mobile Elektroauto-Ladebox (V2) mit Arduino
 
-Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vor, welche für Ladeleistungen bis 22 kW (32 A dreiphasig) ausgelegt ist. Vom Gehäuse über die Elektronik (auch EVSE genannt) bis hin zur Software (Firmware) habe ich alles selbst entwickelt bzw. zusammengebaut. Für die Steuerung ist ein Arduino Nano Board (mit Atmega328P Mikrocontroller) zuständig. 
+Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vor, welche für Ladeleistungen bis 22 kW (32 A dreiphasig) ausgelegt ist. Vom Gehäuse über die Elektronik (auch EVSE genannt) bis hin zur Software (Firmware) ist alles selbst entwickelt bzw. zusammengebaut. Für die Steuerung ist ein Arduino Nano Board (mit Atmega328P Mikrocontroller) zuständig. 
 
-**Zusammenbau und Betrieb der Ladebox erfolgen auf eigene Gefahr! Wird die Planung und der Bau einer Ladebox nicht sorgfältig und fachgerecht durchgeführt oder werden die nötigen Sicherheitsvorkehrungen nicht umgesetzt, besteht bei der Verwendung der Ladebox Lebensgefahr durch die Entstehung von Bränden oder elektrischen Schlägen!**
+**Zusammenbau und Betrieb einer solchen Ladebox erfolgen auf eigene Gefahr! Wird die Planung und der Bau einer Ladebox nicht sorgfältig und fachgerecht durchgeführt oder werden die nötigen Sicherheitsvorkehrungen nicht umgesetzt, besteht bei der Verwendung der Ladebox Lebensgefahr durch die Entstehung von Bränden oder elektrischen Schlägen!**
 
 ![ZOE Box](/Bilder/ZOE%20Box.jpg)
 
@@ -11,7 +11,7 @@ Die Ladebox hat folgende Funktionen / Merkmale:
 - Flexible Wahl des Ladestroms per Taster und LEDs in fünf Schritten: 10 A, 14 A, 16 A, 20 A, 32 A (die Werte sind im Programmcode anpassbar).
 - Die Verriegelung der Typ2-Steckdose verhindert nicht nur ein Abziehen des Typ2-Steckers unter Last, sondern schützt auch die Ladebox vor Diebstahl. Hierzu  wird die Steckdose nicht automatisch bei Stromausfall (bzw. Trennen des Netzsteckers) entriegelt, wie es bei gängigen Ladesteuerungen der Fall ist, sondern erst nach Trennen der Typ2-Steckverbindung am Elektrofahrzeug.
 - Ladestrom-Signalisierung nach SAE J1772 bzw. IEC 61851 (siehe https://www.goingelectric.de/wiki/Typ2-Signalisierung-und-Steckercodierung/) mit +/- 12V Rechtecksignal und Erkennung aller möglicher (mir bekannter) Signalisierungsfehler, z.B. Diodenfehler, Kurzschluss/"Status E", undefinierte Spannung. Die Art des Fehlers wird über Blinkimpulse der Fehler-LED ausgegeben.
-- Schutz vor Gleichfehlerströmen ab 6 mA mittels Fehlerstromschutzschalter Typ A-EV (teuerstes Bauteil der Ladebox).
+- Schutz vor Gleichfehlerströmen ab 6 mA mittels Fehlerstromschutzschalter Typ A-EV (teuerstes Bauteil der Ladebox, aber Sicherheit geht vor).
 - Automatische Fortsetzung des Ladevorgangs bei kurzzeitiger Unterbrechung der Stromzufuhr. Hierzu wird die Wahl des Ladestroms und des Anschlusses im nichtflüchtigen Speicher (EEPROM) des Atmega328P abgelegt.
 - Cooles Lauflicht um die Typ2-Steckdose während des Ladevorgangs :-)
 
@@ -31,8 +31,8 @@ Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de sowie u
 
 ### Gehäuse und Bedienkonzept
 
-Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich dadurch abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
-Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden.
+Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt und genagelt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich dadurch abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht (im Sinne von spritzwassergeschützt) ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
+Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden. Leider steht dadurch die Box etwas wacklig bzw. kippt leicht um. Das sind die beiden Gründe, weshalb ich bin mit dem Gehäuse insgesamt noch nicht ganz glücklich bin, aber ich habe bisher noch keine bessere Lösung gefunden.
 
 ![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
 
@@ -65,7 +65,7 @@ Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregl
 
 ![Steuerplatine](/Bilder/20190227_115933.jpg)
 
-Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach.
+Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach. In der oberen Hälfte der Ladebox befindet sich die ganze Elektronik und das Netzteil, in der unteren Hälfte ist eine Hutschiene angeschraubt, an welcher das Schütz und der Fehlerstromschutzschalter klemmen.
 
 Noch ein Hinweis zur Rechteck-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
 
