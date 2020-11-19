@@ -7,7 +7,7 @@ Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vo
 ![ZOE Box](/Bilder/ZOE%20Box.jpg)
 
 Die Ladebox hat folgende Funktionen / Merkmale:
-- Sie verfügt zusätzlich zum CEE32 rot Stecker über einen fix angebrachten CEE16 blau Anschlussstecker, somit entfällt das Hintereinanderstecken mehrerer Adapterkabel.
+- Sie verfügt zusätzlich zum üblichen CEE32 rot Stecker über einen CEE16 blau Anschlussstecker, somit entfällt das Hintereinanderstecken mehrerer Adapterkabel.
 - Flexible Wahl des Ladestroms per Taster und LEDs in fünf Schritten: 10 A, 14 A, 16 A, 20 A, 32 A (die Werte sind im Programmcode anpassbar).
 - Die Verriegelung der Typ2-Steckdose verhindert nicht nur ein Abziehen des Typ2-Steckers unter Last, sondern schützt auch die Ladebox vor Diebstahl. Hierzu  wird die Steckdose nicht automatisch bei Stromausfall (bzw. Trennen des Netzsteckers) entriegelt, wie es bei gängigen Ladesteuerungen der Fall ist, sondern erst nach Trennen der Typ2-Steckverbindung am Elektrofahrzeug.
 - Ladestrom-Signalisierung nach SAE J1772 bzw. IEC 61851 (siehe https://www.goingelectric.de/wiki/Typ2-Signalisierung-und-Steckercodierung/) mit +/- 12V Rechtecksignal und Erkennung aller möglicher (mir bekannter) Signalisierungsfehler, z.B. Diodenfehler, Kurzschluss/"Status E", undefinierte Spannung. Die Art des Fehlers wird über Blinkimpulse der Fehler-LED ausgegeben.
@@ -31,12 +31,12 @@ Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de sowie u
 
 ### Gehäuse und Bedienkonzept
 
-Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt und genagelt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich dadurch abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht (im Sinne von spritzwassergeschützt) ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
+Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt und genagelt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht (im Sinne von spritzwassergeschützt) ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
 Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden. Leider steht dadurch die Box etwas wacklig bzw. kippt leicht um. Das sind die beiden Gründe, weshalb ich bin mit dem Gehäuse insgesamt noch nicht ganz glücklich bin, aber ich habe bisher noch keine bessere Lösung gefunden.
 
 ![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
 
-An der Vorderseite der Ladebox sind die Bedienelemente und die Typ2-Steckdose angeordnet. Links oben befinden sich zwei Drucktaster zum Einstellen der gewünschten Stromstärke und zum Starten des Ladevorgangs. Mit dem großen Drehschalter rechts wird zwischen den beiden Steckern gewählt. Dieser ist eigentlich überdimensioniert, ist aber ein Relikt von Version 1 der Ladebox, bei welcher der gesamte Ladestrom über diesen Schalter floss. Bei Version 2 fließt nur noch der Versorgungsstrom für die Steuerelektronik über den Schalter, daher reicht nun auch ein kleinerer Schalter. In der Teile-Liste habe ich einen kompakten Kippschalter anstatt des Drehschalters hinterlegt.
+An der Vorderseite der Ladebox sind die Bedienelemente und die Typ2-Steckdose angeordnet. Links oben befinden sich zwei Drucktaster zum Einstellen der gewünschten Stromstärke und zum Starten des Ladevorgangs. Mit dem großen Drehschalter rechts wird zwischen den beiden Steckern gewählt. Dieser ist eigentlich überdimensioniert, ist aber ein Relikt von Version 1 der Ladebox, bei welcher der gesamte Ladestrom über diesen Schalter floss. Bei Version 2 fließt nur noch der Versorgungsstrom für die Steuerelektronik über den Schalter, daher würde nun auch ein kleinerer Schalter ausreichen. In der Teile-Liste habe ich einen kompakten Kippschalter anstatt des Drehschalters hinterlegt.
 
 Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um die Typ2-Steckdose angeordnet sind. 5 davon stehen für die 5 möglichen Stromstärken und die restlichen 3 zeigen den Status der Ladebox an. 
 
@@ -45,12 +45,12 @@ Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um d
 Die Bedienung gestaltet sich folgendermaßen:
 
  - Über den Schalter wählt man aus, ob einphasig über CEE16 blau oder dreiphasig über CEE32 rot geladen werden soll. 
- - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei einphasigem Betrieb kann maximal 16 A ausgewählt werden (in der Software anpassbar).
+ - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei Wahl von CEE16 blau kann maximal 16 A eingestellt werden (in der Software anpassbar).
  - Sobald ein Elektroauto angeschlossen ist (d.h. CP-Spannung auf +9 V), leuchtet die LED mit dem Auto-Symbol.
- - Um den Ladevorgang zu starten, drückt man den oberen Taster. Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der gewählten Stromstärke.
+ - Um den Ladevorgang zu starten, drückt man den oberen Taster (geht nur, wenn ein Auto angeschlossen ist). Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der gewählten Stromstärke.
  - Die Ladebox wartet, bis das Elektroauto die Ladung anfordert. Dies dauert meist wenige Sekunden. Währenddessen blinkt die Sanduhr-LED.
- - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über das 40A-Schütz und bei einphasiger Ladung über zwei 30A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert werden soll.
- - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde, wird das Schütz bzw. werden die Relais deaktiviert und alle LEDs leuchten, der Typ2-Stecker wird aber noch nicht entriegelt. So ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann.
+ - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über ein 40-A-Schütz und bei einphasiger Ladung über zwei 30-A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert wird (Brandgefahr).
+ - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde, wird das Schütz bzw. werden die Relais deaktiviert und das Lauflicht erlischt, stattdessen leuchten alle LEDs auf. Der Typ2-Stecker wird aber noch nicht entriegelt; so ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann.
  - Sobald der Ladestecker am Elektroauto abgezogen wurde, wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
 
 ### Elektrik + Elektronik
@@ -67,7 +67,7 @@ Hier ein Foto der Steuerplatine kurz vor der Fertigstellung. Es fehlen noch der 
 
 Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach. In der oberen Hälfte der Ladebox befinden sich die beiden Platinen und das Netzteil, in der unteren Hälfte ist eine Hutschiene angeschraubt, an welcher das Schütz und der Fehlerstromschutzschalter klemmen. 
 
-Noch ein Hinweis zur Rechteck-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
+Noch ein Hinweis zur Rechteck-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird (wie es die SAE J1772 bzw. IEC 61851 vorsieht), sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Ich halte dies aber für relativ unwahrscheinlich, eher wird der Ladestrom geringfügig reduziert. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
 
 ### Flashen (Aufspielen der Firmware) und Testen
 
@@ -83,4 +83,4 @@ Vor dem Einbau der Elektronik in die Ladebox nicht vergessen, die Debug-Ausgabe 
 
 ### Zukunft
 
-Ich hatte eigentlich geplant, die Lochrasterplatine irgendwann durch eine professionell gefertigte Leiterplatte zu ersetzen (aber die Schaltung beizubehalten), doch leider bin ich bislang nicht dazu gekommen. Inzwischen tendiere ich eher dazu, lieber eine neue Version mit mehr Funktionen und einigen Verbesserungen zu entwickeln und diese dann direkt mit "richtiger Leiterplatte" zu fertigen. Es ist aber leider noch nicht abzusehen, ob und wann ich dazu komme. Im GoingElectric-Forum werde ich Euch selbstverständlich über weitere Entwicklungen auf dem Laufenden halten.
+Ich hatte eigentlich geplant, die Lochrasterplatine irgendwann durch eine professionell gefertigte Leiterplatte zu ersetzen (unter Beibehaltung der Schaltung), doch leider bin ich bislang nicht dazu gekommen. Inzwischen tendiere ich eher dazu, lieber eine neue Version mit mehr Funktionen und einigen Verbesserungen zu entwickeln und diese dann direkt mit "richtiger Leiterplatte" zu fertigen. Es ist aber leider noch nicht abzusehen, ob und wann ich tatsächlich dazu komme. Im GoingElectric-Forum werde ich Euch selbstverständlich über weitere Entwicklungen auf dem Laufenden halten.
