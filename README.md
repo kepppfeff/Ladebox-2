@@ -47,7 +47,7 @@ Die Bedienung gestaltet sich folgendermaßen:
  - Über den Schalter wählt man aus, ob einphasig über CEE16 blau oder dreiphasig über CEE32 rot geladen werden soll. 
  - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei einphasigem Betrieb kann maximal 16 A ausgewählt werden (in der Software anpassbar).
  - Sobald ein Elektroauto angeschlossen ist (d.h. CP-Spannung auf +9 V), leuchtet die LED mit dem Auto-Symbol.
- - Um den Ladevorgang zu starten, drückt man den oberen Taster. Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der eingestellten Stromstärke.
+ - Um den Ladevorgang zu starten, drückt man den oberen Taster. Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der gewählten Stromstärke.
  - Die Ladebox wartet, bis das Elektroauto die Ladung anfordert. Dies dauert meist wenige Sekunden. Währenddessen blinkt die Sanduhr-LED.
  - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über das 40A-Schütz und bei einphasiger Ladung über zwei 30A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert werden soll.
  - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde, wird das Schütz bzw. werden die Relais deaktiviert und alle LEDs leuchten, der Typ2-Stecker wird aber noch nicht entriegelt. So ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann.
@@ -55,23 +55,23 @@ Die Bedienung gestaltet sich folgendermaßen:
 
 ### Elektrik + Elektronik
 
-Der Zusammenbau von netzspannungsführenden Teilen darf grundsätzlich nur von ausgebildeten Fachkräften durchgeführt werden. An jeder Stelle muss sorgfältig auf eine ausreichende Dimensionierung von elektrischen Komponenten und Leitungsquerschnitten und eine Minimierung von Übergangswiderständen geachtet werden. Bei flexiblen Leitern ist die Verwendung von Aderendhülsen notwendig (Ausnahme WAGO-Klemmen und sonstige Federklemmen). Vor Inbetriebnahme muss durch Messungen mit entsprechendem Messequipment sichergestellt werden, dass alle relevanten Anforderungen eingehalten werden. 
+Der Zusammenbau von netzspannungsführenden Teilen darf grundsätzlich nur von ausgebildeten Fachkräften durchgeführt werden. An jeder Stelle muss sorgfältig auf eine ausreichende Dimensionierung von elektrischen Komponenten und Leitungsquerschnitten und eine Minimierung von Übergangswiderständen geachtet werden. Bei flexiblen Leitern ist die Verwendung von Aderendhülsen notwendig (Ausnahme Federklemmen, z.B. WAGO). Vor Inbetriebnahme muss durch Messungen mit entsprechendem Messequipment sichergestellt werden, dass alle relevanten Anforderungen eingehalten werden. 
 
-Bei den Leitungen für 32 A habe ich einen Leitungsquerschnitt von 4 mm² verwendet. Dies entspricht auch dem Typ2-Ladekabel unseres Elektroautos. Da das Auto einen kleinen Akku hat und daher maximal eine Stunde lang mit den vollen 22 kW laden kann, halte ich diesen Querschnitt für in Ordnung. Wenn die 22 kW aber auch für längere Zeit bereitgestellt werden sollen, würde ich zu einen Leitungsquerschnitt von 6 mm² raten. 
+Bei den Leitungen für 32 A habe ich einen Leitungsquerschnitt von 4 mm² verwendet. Dies entspricht auch dem Typ2-Ladekabel unseres Elektroautos. Da das Auto in unserem Fall einen kleinen Akku hat, kann es maximal eine Stunde lang mit den vollen 22 kW laden, daher halte ich diesen Querschnitt für in Ordnung. Wenn die 22 kW aber auch für längere Zeit bereitgestellt werden sollen, würde ich zu einen Leitungsquerschnitt von 6 mm² raten. 
 
-Die Elektronik habe ich auf zwei Lochrasterplatinen entsprechend der Seiten des Schaltplans verteilt: eine Netzplatine und eine Steuerplatine. Um netzspannungsführende Leiterbahnen herum habe ich immer zwei Lochreihen Abstand gelassen und dort die Kupferpads weggefräst, um eine ausreichende Isolierung sicherzustellen.
+Die Elektronik habe ich auf zwei Lochrasterplatinen entsprechend der Seiten des Schaltplans verteilt: eine Netzplatine und eine Steuerplatine. Die Netzplatine enthält somit lediglich die drei 230-V-Relais, die Schmelzsicherung und drei Dioden. Um netzspannungsführende Leiterbahnen herum habe ich immer zwei Lochreihen Abstand gelassen und dort die Kupferpads weggefräst, um eine ausreichende Isolierung sicherzustellen.
 
-Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregler, der große Kondensator für die Steckerverriegelung und die einsteckbaren Bauteile (Arduino, Ladungspumpe, Komparator, OpAmp).
+Hier ein Foto der Steuerplatine kurz vor der Fertigstellung. Es fehlen noch der 5V-Spannungsregler, der große Kondensator für die Steckerverriegelung und die einsteckbaren Bauteile (Arduino, Ladungspumpe, Komparator, OpAmp).
 
 ![Steuerplatine](/Bilder/20190227_115933.jpg)
 
-Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach. In der oberen Hälfte der Ladebox befindet sich die ganze Elektronik und das Netzteil, in der unteren Hälfte ist eine Hutschiene angeschraubt, an welcher das Schütz und der Fehlerstromschutzschalter klemmen.
+Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach. In der oberen Hälfte der Ladebox befinden sich die beiden Platinen und das Netzteil, in der unteren Hälfte ist eine Hutschiene angeschraubt, an welcher das Schütz und der Fehlerstromschutzschalter klemmen. 
 
 Noch ein Hinweis zur Rechteck-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
 
 ### Flashen (Aufspielen der Firmware) und Testen
 
-Zum Flashen des Mikrocontrollers muss das Arduino-Board lediglich über ein Mini-USB-Kabel mit einem PC verbunden und der Programmcode (.ino) mit der Arduino IDE geöffnet werden. Der Mikrocontroller kann, muss aber dafür noch nicht mit der restlichen Schaltung verbunden sein, er wird dann über USB mit Strom versorgt. Anleitungen zur genauen Vorgehensweise gibt es zuhauf im Internet.
+Zum Flashen des Mikrocontrollers muss das Arduino-Board lediglich über ein Mini-USB-Kabel mit einem PC verbunden und der Programmcode (.ino) mit der Arduino IDE geöffnet werden. Anleitungen zur genauen Vorgehensweise gibt es zuhauf im Internet. Der Mikrocontroller kann, muss aber dafür noch nicht mit der restlichen Schaltung verbunden sein, er wird dann über USB mit Strom versorgt. 
 
 Um zu überprüfen, ob das Programm grundsätzlich ausgeführt wird, sollte zunächst in Zeile 20 des Programmcodes das Debugging aktiviert werden ("false" durch "true" ersetzen). Dadurch gibt der Mikrocontroller Statusinformationen über die serielle Schnittstelle aus (also über das USB-Kabel). Diese können in der Arduino IDE über den Button mit der Lupe (rechts oben) quasi in Echtzeit angezeigt werden.
 
