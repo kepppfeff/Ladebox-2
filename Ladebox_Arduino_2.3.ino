@@ -34,7 +34,7 @@
 // Dies ist beispielsweise bei vielen einfachen Typ2-Adaptern (z.B. Typ2 auf Schuko) oder ggf. bei älteren oder umgebauten Elektrofahrzeugen notwendig.
 #define ADAPTERKOMPATIBILITAET false
 
-#define CP_TIMEOUT 800  // gibt an, nach welcher Zeit (in Millisekunden) ein Ladevorgang abgebrochen wird, wenn der Status des E-Autos nicht ermittelt werden kann.
+#define CP_TIMEOUT 300  // gibt an, nach welcher Zeit (in Millisekunden) ein Ladevorgang abgebrochen wird, wenn der Status des E-Autos nicht ermittelt werden kann.
 
 // Durch die folgenden Werte werden die ADC-Messwerte (10 Bit, also zwischen 0 und 1023) dividiert, um die Spannung am CP-Pin zu erhalten. Da alle Widerstände und die
 // Versorgungsspannungen gewissen Toleranzen unterliegen, ist hier ggf. eine Anpassung erforderlich. Zur Kalibrierung kann sehr gut die Debug-Schnittstelle verwendet werden.
