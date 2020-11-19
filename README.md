@@ -2,7 +2,7 @@
 
 Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vor, welche für Ladeleistungen bis 22 kW (32 A dreiphasig) ausgelegt ist. Vom Gehäuse über die Elektronik (auch EVSE genannt) bis hin zur Software (Firmware) habe ich alles selbst entwickelt bzw. zusammengebaut. Für die Steuerung ist ein Arduino Nano Board (mit Atmega328P Mikrocontroller) zuständig. 
 
-**Zusammenbau und Betrieb der Ladebox erfolgen auf eigene Gefahr! Wird die Planung und der Bau einer Ladebox nicht sorgfältig und fachgerecht durchgeführt oder werden die nötigen Sicherheitsvorkehrungen weggelassen, besteht bei der Verwendung der Ladebox Lebensgefahr durch die Entstehung von Bränden oder elektrischen Schlägen!**
+**Zusammenbau und Betrieb der Ladebox erfolgen auf eigene Gefahr! Wird die Planung und der Bau einer Ladebox nicht sorgfältig und fachgerecht durchgeführt oder werden die nötigen Sicherheitsvorkehrungen nicht umgesetzt, besteht bei der Verwendung der Ladebox Lebensgefahr durch die Entstehung von Bränden oder elektrischen Schlägen!**
 
 ![ZOE Box](/Bilder/ZOE%20Box.jpg)
 
@@ -67,7 +67,14 @@ Hier ein Foto der Steuerplatine beim Aufbau. Es fehlen noch der 5V-Spannungsregl
 
 Weitere Fotos vom Inneren der Box habe ich im Moment nicht, reiche ich aber bei Gelegenheit nach.
 
-Noch ein Hinweis zur Rechtecksignal-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
+Noch ein Hinweis zur Rechteck-Signalisierung: Die Schaltung wurde bisher nur mit einer Renault ZOE Q210 getestet und funktioniert hier seit über einem Jahr sehr zuverlässig. Da das Rechtecksignal allerdings nicht mit einer Frequenz von 1 kHz erzeugt wird, wie es die SAE J1772 bzw. IEC 61851 vorsieht, sondern nur mit 976 Hz, könnte es andere Fahrzeuge geben, die es mit der Frequenz sehr genau nehmen und die Ladung verweigern. Prinzipiell müsste es möglich sein, den Atmega328P durch das Ausnutzen weiterer Register (nach sorgfältigem und vermutlich langwierigem Studium des Datenblattes) dazu zu bringen, näher an die 1 kHz heranzukommen. Da es bei unserem Elektroauto aber mit den 976 Hz einwandfrei funktioniert, habe ich mich nicht weiter damit befasst.
+
+### Flashen (Aufspielen der Firmware) und Testen
+
+Zum Flashen des Mikrocontrollers muss das Arduino-Board lediglich über ein Mini-USB-Kabel mit einem PC verbunden und der Programmcode (.ino) mit der Arduino IDE geöffnet werden. Der Mikrocontroller kann, muss aber dafür noch nicht mit der restlichen Schaltung verbunden sein, er wird dann über USB mit Strom versorgt. Anleitungen zur genauen Vorgehensweise gibt es zuhauf im Internet.
+Um zu überprüfen, ob das Programm grundsätzlich ausgeführt wird, sollte zunächst in Zeile 20 des Programmcodes das Debugging aktiviert werden ("false" durch "true" ersetzen). Dadurch gibt der Mikrocontroller Statusinformationen über die serielle Schnittstelle aus (also über das USB-Kabel). Diese können dann in der Arduino IDE über den Button mit der Lupe (rechts oben) quasi in Echtzeit angezeigt werden.
+
+Vor dem Zusammenbau der Ladebox muss noch die aufgebaute Schaltung getestet und ggf. kalibriert werden. Hierzu muss die Elektronik lediglich mit 12 V versorgt werden. Die Relaiskontakte also noch nicht mit Netzspannung verbinden und auch das Schütz noch nicht anschließen; das korrekte Schalten kann stattdessen mit einem Multimeter überprüft werden. Dennoch sollten alle LEDs und Taster, der Wahlschalter sowie der Verriegelungsaktuator angeschlossen werden. Zudem muss der Anschluss eines Ladekabels an PP und eines Elektroautos an CP simuliert werden. Dazu werden lediglich eine Standard-Diode (z.B. 1N4007) und mindestens drei Widerstände benötigt, welche entsprechend https://www.goingelectric.de/wiki/Typ2-Signalisierung-und-Steckercodierung/ an PP und CP angeschlossen werden. Ich habe diese Bauteile auf einem Breadboard (Steckplatine) verschaltet, um verschiedene Szenarien durchspielen zu können und auch Fehler simulieren zu können. 
 
 ### Zukunft
 
