@@ -40,7 +40,7 @@ An der Vorderseite der Ladebox sind die Bedienelemente und die Typ2-Steckdose an
 
 Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um die Typ2-Steckdose angeordnet sind. 5 davon stehen für die 5 möglichen Stromstärken und die restlichen 3 zeigen den Status der Ladebox an. 
 
-![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite.JPG)
+![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite%20neu.jpeg)
 
 Die Bedienung gestaltet sich folgendermaßen:
 
