@@ -29,29 +29,31 @@ Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der
 
 Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de sowie unter kepppfeff@t-online.de zur Verfügung.
 
+![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
+
 ### Gehäuse und Bedienkonzept
 
 Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt und genagelt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht (im Sinne von spritzwassergeschützt) ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
 Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden. Leider steht dadurch die Box etwas wacklig bzw. kippt leicht um. Das sind die beiden Gründe, weshalb ich bin mit dem Gehäuse insgesamt noch nicht ganz glücklich bin, aber ich habe bisher noch keine bessere Lösung gefunden.
 
-![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
+![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite%20neu.jpeg)
 
 An der Vorderseite der Ladebox sind die Bedienelemente und die Typ2-Steckdose angeordnet. Links oben befinden sich zwei Drucktaster zum Einstellen der gewünschten Stromstärke und zum Starten des Ladevorgangs. Mit dem großen Drehschalter rechts wird zwischen den beiden Steckern gewählt. Dieser ist eigentlich überdimensioniert, ist aber ein Relikt von Version 1 der Ladebox, bei welcher der gesamte Ladestrom über diesen Schalter floss. Bei Version 2 fließt nur noch der Versorgungsstrom für die Steuerelektronik über den Schalter, daher würde nun auch ein kleinerer Schalter ausreichen. In der Teile-Liste habe ich einen kompakten Kippschalter anstatt des Drehschalters hinterlegt.
 
 Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um die Typ2-Steckdose angeordnet sind. 5 davon stehen für die 5 möglichen Stromstärken und die restlichen 3 zeigen den Status der Ladebox an. 
 
-![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite%20neu.jpeg)
-
 Die Bedienung gestaltet sich folgendermaßen:
 
  - Über den Schalter wählt man aus, ob einphasig über CEE16 blau oder dreiphasig über CEE32 rot geladen werden soll. 
  - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei Wahl von CEE16 blau kann maximal 16 A eingestellt werden (in der Software anpassbar).
+ ![Auswahl Ladestrom](/Bilder/IMG_20201122_153244%5B1%5D.jpg)
  - Sobald ein Elektroauto angeschlossen ist (d.h. CP-Spannung auf +9 V), leuchtet die LED mit dem Auto-Symbol.
  - Um den Ladevorgang zu starten, drückt man den oberen Taster (geht nur, wenn ein Auto angeschlossen ist). Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der gewählten Stromstärke.
  - Die Ladebox wartet, bis das Elektroauto die Ladung anfordert. Dies dauert meist wenige Sekunden. Währenddessen blinkt die Sanduhr-LED.
  - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über ein 40-A-Schütz und bei einphasiger Ladung über zwei 30-A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert wird (Brandgefahr).
  - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde, wird das Schütz bzw. werden die Relais deaktiviert und das Lauflicht erlischt, stattdessen leuchten alle LEDs auf. Der Typ2-Stecker wird aber noch nicht entriegelt; so ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann.
  - Sobald der Ladestecker am Elektroauto abgezogen wurde, wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
+![Alle LEDs leuchten](/Bilder/IMG_20201122_153349%5B1%5D.jpg)
 
 ### Elektrik + Elektronik
 
