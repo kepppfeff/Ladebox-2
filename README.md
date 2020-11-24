@@ -45,14 +45,14 @@ Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um d
 Die Bedienung gestaltet sich folgendermaßen:
 
  - Über den Schalter wählt man aus, ob einphasig über CEE16 blau oder dreiphasig über CEE32 rot geladen werden soll. 
- - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei Wahl von CEE16 blau kann maximal 16 A eingestellt werden (in der Software anpassbar).
+ - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei Anschluss über CEE32 rot ist 16 A voreingestellt. Bei Betrieb über CEE16 blau ist 10 A voreingestellt und es kann maximal 16 A gewählt werden. Alle genannten Werte sind natürlich im Arduino-Programmcode anpassbar.
  ![Auswahl Ladestrom](/Bilder/IMG_20201122_153244%5B1%5D.jpg)
  - Sobald ein Elektroauto angeschlossen ist (d.h. CP-Spannung auf +9 V), leuchtet die LED mit dem Auto-Symbol.
  - Um den Ladevorgang zu starten, drückt man den oberen Taster (geht nur, wenn ein Auto angeschlossen ist). Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der gewählten Stromstärke.
- - Die Ladebox wartet, bis das Elektroauto die Ladung anfordert. Dies dauert meist wenige Sekunden. Währenddessen blinkt die Sanduhr-LED.
- - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über ein 40-A-Schütz und bei einphasiger Ladung über zwei 30-A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert wird (Brandgefahr).
- - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde, wird das Schütz bzw. werden die Relais deaktiviert und das Lauflicht erlischt, stattdessen leuchten alle LEDs auf. Der Typ2-Stecker wird aber noch nicht entriegelt; so ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann.
- - Sobald der Ladestecker am Elektroauto abgezogen wurde, wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
+ - Die Ladebox wartet, bis das Elektroauto die Ladung anfordert (d.h. CP-Spannung auf +6 V). Dies dauert meist wenige Sekunden. Währenddessen blinkt die Sanduhr-LED.
+ - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über ein 4-poliges 40-A-Schütz und bei einphasiger Ladung über zwei 30-A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert wird (Brandgefahr).
+ - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde (d.h. CP-Spannung auf +9 V), wird das Schütz bzw. werden die Relais deaktiviert und das Lauflicht erlischt, stattdessen leuchten alle LEDs auf. Der Typ2-Stecker wird aber noch nicht entriegelt; so ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann. Das CP-Rechtecksignal läuft weiter, sodass das Elektroauto jederzeit die Ladung erneut anfordern kann (Vorklimatisierung müsste somit auch möglich sein).
+ - Sobald der Ladestecker am Elektroauto abgezogen wurde (d.h. CP-Spannung auf +9 V), wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
 ![Alle LEDs leuchten](/Bilder/IMG_20201122_153349%5B1%5D.jpg)
 
 ### Elektrik + Elektronik
