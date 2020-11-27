@@ -16,7 +16,7 @@
  *  DIE FOLGENDEN WERTE KÖNNEN NACH BEDARF VERÄNDERT WERDEN, Z.B. ZUR INDIVIDUALISIERUNG, FEHLERSUCHE ODER KALIBRIERUNG
  */
 // Folgenden Wert zu true ändern, um Statusinformationen über die serielle Schnittstelle ausgeben zu lassen. Dies reduziert allerdings
-// die Reaktionsgeschwindigkeit und Sicherheit der Ladebox und sollte daher nur zur Fehlersuche verwendet werden.
+// die Reaktionsgeschwindigkeit und Sicherheit der Ladebox und sollte daher nur zur Fehlersuche oder Kalibrierung verwendet werden.
 #define DEBUG false
 
 // Falls der folgende Wert zu true geändert wird, beendet die Ladebox einen Ladevorgang nicht, wenn ein Fehler erkannt wurde.
@@ -25,20 +25,21 @@
 #define FEHLER_IGNORIEREN false
 
 // Falls der folgende Wert zu true geändert wird, beendet die Ladebox einen Ladevorgang nicht, wenn das E-Auto eine Belüftung anfordert. 
-// Dies ist eigentlich nur für (alte) Elektrofahrzeuge mit Bleiakkumulatoren relevant und darf nur aktiviert werden, wenn die Ladebox ausschließlich im Freien genutzt wird.
+// Dies ist eigentlich nur für (alte) Elektrofahrzeuge mit Bleiakkumulatoren (Gasung) relevant und darf nur geändert werden, wenn sichergestellt ist, 
+// dass angeschlossene Elektrofahrzeuge immer gut belüftet sind.
 #define BELUEFTUNG false
 
 // Wenn der folgende Wert bei false belassen wird, erwartet die Ladebox zunächst den Status +9 V vom E-Auto, bevor sie das PWM-Signal aktiviert. 
 // Erst dann kann das E-Auto auf +6 V (oder +3 V) wechseln und somit den Ladevorgang starten. 
-// Falls der folgende Wert zu true geändert wird, startet die Ladebox einen Ladevorgang auch dann, wenn bereits ohne PWM-Signal der Status +6 V gemeldet wird.
-// Dies ist beispielsweise bei vielen einfachen Typ2-Adaptern (z.B. Typ2 auf Schuko) oder ggf. bei älteren oder umgebauten Elektrofahrzeugen notwendig.
+// Falls der folgende Wert zu true geändert wird, startet die Ladebox einen Ladevorgang auch dann, wenn bereits ohne PWM-Signal der Status +6 V (oder +3 V) erkannt wird.
+// Dies könnte bei einfachen Typ2-Adaptern (z.B. Typ2 auf Schuko) oder bei älteren oder umgebauten Elektrofahrzeugen erforderlich sein.
 #define ADAPTERKOMPATIBILITAET false
 
 #define CP_TIMEOUT 300  // gibt an, nach welcher Zeit (in Millisekunden) ein Ladevorgang abgebrochen wird, wenn der Status des E-Autos nicht ermittelt werden kann.
 
 // Durch die folgenden Werte werden die ADC-Messwerte (10 Bit, also zwischen 0 und 1023) dividiert, um die Spannung am CP-Pin zu erhalten. Da alle Widerstände und die
 // Versorgungsspannungen gewissen Toleranzen unterliegen, ist hier ggf. eine Anpassung erforderlich. Zur Kalibrierung kann sehr gut die Debug-Schnittstelle verwendet werden.
-// Damit die Berechnung mit Gleitkommazahlen erfolgt, darf die Nachkommastelle auch bei einem glatten Wert nicht weggelassen werden, also nicht z.B. 74 schreiben, sondern 74.0
+// Damit die Berechnung mit Gleitkommazahlen erfolgt, darf die Nachkommastelle auch bei einem glatten Wert nicht weggelassen werden, also z.B. 74.0 statt 74 schreiben.
 #define CP_PLUS_FAKTOR 73.3
 #define CP_MINUS_FAKTOR 74.9
 
@@ -55,8 +56,10 @@ const byte PULSWEITE [5] = {   42,   58,   68,   85,   136   };    // 10 A, 13,5
 
 #define MAX_PULSWEITE_EINPHASIG 68  // gibt an, welche maximale Stromstärke bei einphasigem Betrieb eingestellt werden kann. Hier 16 A.
 
-#define START_STROMSTAERKE_EINPHASIG  0  // gibt an, welche Stromstärke bei einphasigem Anschluss voreingestellt ist (Ladevorgang startet nicht selbstständig). Hier 10 A.
-#define START_STROMSTAERKE_DREIPHASIG 2  // gibt an, welche Stromstärke bei dreiphasigem Anschluss voreingestellt ist (Ladevorgang startet nicht selbstständig). Hier 16 A.
+// Die folgenden Werte geben an, welche Stromstärke bei ein- bzw. dreiphasigem Anschluss voreingestellt ist. Diese kann natürlich mittels Taster geändert werden, bevor 
+// durch Drücken des START-Tasters der Ladevorgang gestartet wird. Die Werte dienen als Index für das Array const byte PULSWEITE [5].
+#define START_STROMSTAERKE_EINPHASIG  0  // Bei einphasigem Anschluss ist 10 A voreingestellt.
+#define START_STROMSTAERKE_DREIPHASIG 2  // Bei dreiphasigem Anschluss ist 16 A voreingestellt.
 
 // Die folgenden Parameter definieren den Temperaturbereich (in Grad Celsius), in welchem ein Ladevorgang durchgeführt werden kann.
 // Wichtig: Gemessen wird nicht die "Gehäuseinnentemperatur" der Ladebox, sondern die interne Temperatur des Mikrocontrollers, welche geringfügig abweichen kann.
