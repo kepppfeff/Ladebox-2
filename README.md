@@ -45,7 +45,7 @@ Als Anzeigeelemente stehen 8 grüne LEDs zur Verfügung, welche ringförmig um d
 Die Bedienung gestaltet sich folgendermaßen:
 
  - Über den Schalter wählt man aus, ob einphasig über CEE16 blau oder dreiphasig über CEE32 rot geladen werden soll. 
- - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei Anschluss über CEE32 rot ist 16 A voreingestellt. Bei Betrieb über CEE16 blau ist 10 A voreingestellt und es kann maximal 16 A gewählt werden. Alle genannten Werte sind natürlich im Arduino-Programmcode anpassbar.
+ - Anschließend wählt man über den unteren Taster die gewünschte Stromstärke, welche über die LEDs angezeigt wird. Bei Anschluss über CEE32 rot ist 16 A voreingestellt. Bei Betrieb über CEE16 blau ist 10 A voreingestellt und es kann maximal 16 A gewählt werden. Alle genannten Werte sind natürlich im Arduino-Programmcode anpassbar. Ist durch den gemessenen Ladekabel-Kodierwiderstand der Ladestrom begrenzt, kann natürlich nur ein entsprechend niedrigerer Ladestrom vom Benutzer gewählt werden, was auch durch ein Blinken der Auto-LED signalisiert wird.
  ![Auswahl Ladestrom](/Bilder/IMG_20201122_153244%5B1%5D.jpg)
  - Sobald ein Elektroauto angeschlossen ist (d.h. CP-Spannung auf +9 V), leuchtet die LED mit dem Auto-Symbol.
  - Um den Ladevorgang zu starten, drückt man den oberen Taster (geht nur, wenn ein Auto angeschlossen ist). Daraufhin wird der Typ2-Stecker verriegelt und das Rechtecksignal wird gestartet, mit einer Pulsweite entsprechend der gewählten Stromstärke.
@@ -82,3 +82,20 @@ Vor dem Zusammenbau der Ladebox muss die aufgebaute Schaltung noch getestet und 
 Um die Spannungsmessung zu kalibrieren, muss parallel zum Testaufbau die Debug-Schnittstelle ausgelesen werden (über USB-Kabel) und die ausgegebenen Messwerte für +12 V und -12 V (für -12V muss ein Ladevorgang simuliert werden) mit den tatsächlichen Versorgungsspannungen (mit Multimeter messen) verglichen werden. Anschließend im Programmcode die Werte CP_PLUS_FAKTOR und CP_MINUS_FAKTOR (Zeile 42 / 43) so anpassen, dass die Messwerte möglichst genau übereinstimmen und das ganze dann nochmal nachprüfen.
 
 Vor dem Einbau der Elektronik in die Ladebox nicht vergessen, die Debug-Ausgabe in Zeile 20 des Programmcodes wieder zu deaktivieren, da diese die Reaktionsgeschwindigkeit des Mikrocontrollers herabsetzt.
+
+### Fehlerzustände
+
+Erkennt die Ladebox einen Fehler, wird der Ladevorgang sofort unterbrochen, das CP-Signal auf -12 V gesetzt und die Art des Fehlers (bei mehreren Fehlern nur des zuerst erkannten) wird über Blinkimpulse der Fehler-LED ausgegeben:
+- 1x blinken: Maximaltemperatur überschritten (Temperatur wird über den internen Temperatursensor des ATmega328P gemessen)
+- 2x blinken: Mindesttemperatur überschritten (vermutlich Temperatursensor defekt oder Auswertung fehlerhaft)
+- 3x blinken: Verriegelung funktioniert nicht. In diesem Fall wird alle 30 Sekunden erneut versucht, die Steckdose zu verriegeln, bei Erfolg wird automatisch der Ladevorgang gestartet
+- 4x blinken: Ladekabel-Kodierwiderstand (PP) entspricht keinem definierten Wert oder hat sich zu einem anderen verändert
+- 5x blinken: Am Pilotsignal wurde ein Fahrzeug erkannt, es ist jedoch kein Ladekabel-Kodierwiderstand vorhanden.
+- 6x blinken: Der Status des Elektrofahrzeugs konnte innerhalb einer im Programmcode definierbaren Zeitdauer (CP_TIMEOUT) nicht ermittelt werden. 
+- 7x blinken: Am Pilotsignal wurde eine undefinierte Spannung erkannt.
+- 8x blinken: Am CP-Pin wurde eine zu hohe Spannung gemessen (größer als +12,5 V oder kleiner als -12,5 V)
+- 9x blinken: Diodenfehler (negativer Pegel der CP-Spannung ist ungleich -12 V)
+- 10x blinken: CP-Pin ist mit GND bzw. PE verbunden ("Status E")
+- 11x blinken: Das Elektroauto ist plötzlich nicht mehr angeschlossen, ohne dass der Ladevorgang ordnungsgemäß beendet wurde.
+- 12x blinken: Der Schalter zur Wahl zwischen ein- und dreiphasiger Ladung wurde während des Betriebs umgestellt.
+- 13x blinken: Das Elektroauto fordert eine Belüftung an (CP-Spannung ist +3 V)
