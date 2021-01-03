@@ -6,7 +6,7 @@ Hier stelle ich meine mobile Ladebox mit Typ2-Steckdose für Elektrofahrzeuge vo
 
 ![ZOE Box](/Bilder/ZOE%20Box.jpg)
 
-Die Ladebox hat folgende Funktionen / Merkmale:
+Die Ladebox verfügt über folgende Funktionen / Merkmale:
 - Sie verfügt zusätzlich zum üblichen CEE32 rot Stecker über einen CEE16 blau Stecker, somit entfällt das Hintereinanderstecken mehrerer Adapterkabel.
 - Flexible Wahl des Ladestroms per Taster und LEDs in fünf Schritten: 10 A, 14 A, 16 A, 20 A, 32 A (die Werte sind im Programmcode anpassbar).
 - Die Verriegelung der Typ2-Steckdose verhindert nicht nur ein Abziehen des Typ2-Steckers unter Last, sondern schützt auch die Ladebox vor Diebstahl. Hierzu  wird die Steckdose nicht automatisch bei Stromausfall (bzw. Trennen des Netzsteckers) entriegelt, wie es bei gängigen Ladesteuerungen der Fall ist, sondern erst nach Trennen der Typ2-Steckverbindung am Elektrofahrzeug.
@@ -52,7 +52,7 @@ Die Bedienung gestaltet sich folgendermaßen:
  - Die Ladebox wartet, bis das Elektroauto die Ladung anfordert (d.h. CP-Spannung auf +6 V). Dies dauert meist wenige Sekunden. Währenddessen blinkt die Sanduhr-LED.
  - Sobald das Elektroauto die Ladung anfordert, wird die Stromversorgung zum E-Auto eingeschaltet: bei dreiphasiger Ladung über ein 4-poliges 40-A-Schütz und bei einphasiger Ladung über zwei 30-A-Relais. Ab jetzt kann die Ladestrom-Einstellung nicht mehr geändert werden, wodurch eine Manipulation verhindert wird (Brandgefahr).
  - Wenn das Elektroauto fertig geladen hat bzw. der Ladevorgang manuell am Auto beendet wurde (d.h. CP-Spannung auf +9 V), wird das Schütz bzw. werden die Relais deaktiviert und das Lauflicht erlischt, stattdessen leuchten alle LEDs auf. Der Typ2-Stecker wird aber noch nicht entriegelt; so ist sichergestellt, dass die Ladebox nicht ohne weiteres geklaut werden kann. Das CP-Rechtecksignal läuft weiter, sodass das Elektroauto jederzeit die Ladung erneut anfordern kann (Vorklimatisierung müsste somit auch möglich sein, habe ich aber noch nie getestet).
- - Sobald der Ladestecker am Elektroauto abgezogen wurde (d.h. CP-Spannung auf +9 V), wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
+ - Sobald der Ladestecker am Elektroauto abgezogen wurde (d.h. CP-Spannung auf +12 V), wird auch die Typ2-Steckdose der Ladebox entriegelt. Die Ladebox muss hierzu weiterhin am Strom hängen, erst danach kann der netzseitige Stecker gezogen werden.
 ![Alle LEDs leuchten](/Bilder/IMG_20201122_153349%5B1%5D.jpg)
 
 ### Elektrik + Elektronik
