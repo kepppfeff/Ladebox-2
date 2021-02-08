@@ -27,7 +27,9 @@ Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der
 - Excel-Liste mit allen benötigten Teilen und Links zu Bezugsquellen (kann auch im Browser angesehen werden: https://1drv.ms/x/s!AtqpgKTCo4sfsErbr3rMgM7kWvw-?e=OKO3dO)
 - CAD-Datei zum 3D-Druck der Steckerhalterung für CEE32 rot und CEE16 blau (zur Vorschau Datei anklicken)
 
-Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de sowie unter kepppfeff@t-online.de zur Verfügung.
+Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de sowie unter kepppfeff@t-online.de zur Verfügung. 
+
+Gerne kannst du dich über meinen Einladungslink beim Bonusprogramm &Charge anmelden, dadurch bekommen wir beide jeweils 10 Freikilometer :-) https://and-charge.com/#/invite-friends?code=VKUBDE
 
 ![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
 
