@@ -29,16 +29,17 @@ Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der
 
 Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de (Benutzername kepppfeff-ZOE) sowie unter kepppfeff@t-online.de zur Verfügung. 
 
-Gerne kannst du dich über meinen Einladungslink beim Bonusprogramm &Charge anmelden, dadurch bekommen wir beide jeweils 10 Freikilometer :-) https://and-charge.com/#/invite-friends?code=VKUBDE
-
-Falls du gerade einen neuen Stromanbieter suchst, kann ich Tibber empfehlen. Registriere dich über folgenden Link, dann bekommen wir beide jeweils 50 € Guthaben für den Kauf smarter Geräte: https://invite.tibber.com/41da59bf
+Meine Empfehlungslinks/-codes:
+&Charge (Bonusprogramm): 10 Freikilometer für jeden über den Link https://and-charge.com/#/invite-friends?code=VKUBDE
+Bonnet App (Ladestrom): 17,55 € Rabatt mit meinem Code RZV554
+JUICIFY (THG-Prämie, Auszahlung innerhalb weniger Tage): HTTPS://JUICIFY.GREEN/?REF=51D5DF
 
 ![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
 
 ### Gehäuse und Bedienkonzept
 
 Das Gehäuse habe ich aus Sperrholz gefertigt und mit 6 Dachlattenstücken verstärkt (alles geklebt und genagelt). Die Kiste hat die Maße 28 cm × 14 cm × 8,5 cm. Die rückseitige Platte ist mit 6 Schrauben befestigt und lässt sich abnehmen. Ich habe diese Platte zwar mit Schaumstoffstreifen abgedichtet, bin mir aber nicht ganz sicher, ob die Box wasserdicht (im Sinne von spritzwassergeschützt) ist, daher verwende ich sie sicherheitshalber nicht bei Regen im Freien. 
-Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden. Leider steht dadurch die Box etwas wacklig bzw. kippt leicht um. Das sind die beiden Gründe, weshalb ich bin mit dem Gehäuse insgesamt noch nicht ganz glücklich bin, aber ich habe bisher noch keine bessere Lösung gefunden.
+Seitlich habe ich eine 3D-gedruckte Halterung angebracht, in welcher die beiden Stecker Platz finden. Leider steht dadurch die Box etwas wacklig bzw. kippt leicht um. Das sind die beiden Gründe, weshalb ich bin mit dem Gehäuse insgesamt noch nicht ganz zufrieden bin, aber ich habe bisher noch keine bessere Lösung gefunden.
 
 ![Vorderseite](/Bilder/ZOE%20Box%20Vorderseite%20neu.jpeg)
 
@@ -91,7 +92,7 @@ Vor dem Einbau der Elektronik in die Ladebox nicht vergessen, die Debug-Ausgabe 
 
 Erkennt die Ladebox einen Fehler, wird der Ladevorgang sofort unterbrochen, das CP-Signal auf -12 V gesetzt und die Art des Fehlers (bei mehreren Fehlern nur des zuerst erkannten) wird über Blinkimpulse der Fehler-LED ausgegeben:
 - 1x blinken: Maximaltemperatur überschritten (Temperatur wird über den internen Temperatursensor des ATmega328P gemessen)
-- 2x blinken: Mindesttemperatur überschritten (vermutlich Temperatursensor defekt oder Auswertung fehlerhaft)
+- 2x blinken: Mindesttemperatur unterschritten (vermutlich Temperatursensor defekt oder Auswertung fehlerhaft)
 - 3x blinken: Verriegelung funktioniert nicht. In diesem Fall wird alle 30 Sekunden erneut versucht, die Steckdose zu verriegeln, bei Erfolg wird automatisch der Ladevorgang gestartet
 - 4x blinken: Ladekabel-Kodierwiderstand (PP) entspricht keinem definierten Wert oder hat sich zu einem anderen verändert
 - 5x blinken: Am Pilotsignal wurde ein Fahrzeug erkannt, es ist jedoch kein Ladekabel-Kodierwiderstand vorhanden.
@@ -100,6 +101,6 @@ Erkennt die Ladebox einen Fehler, wird der Ladevorgang sofort unterbrochen, das 
 - 8x blinken: Am CP-Pin wurde eine zu hohe Spannung gemessen (größer als +12,5 V oder kleiner als -12,5 V)
 - 9x blinken: Diodenfehler (negativer Pegel der CP-Spannung ist ungleich -12 V)
 - 10x blinken: CP-Pin ist mit GND bzw. PE verbunden ("Status E")
-- 11x blinken: Das Elektroauto ist plötzlich nicht mehr angeschlossen, ohne dass der Ladevorgang ordnungsgemäß beendet wurde.
+- 11x blinken: Das Elektroauto ist plötzlich nicht mehr angeschlossen, ohne dass der Ladevorgang ordnungsgemäß beendet wurde. Bei einigen Elektroautos kann der Ladevorgang gar nicht ordnungsgemäß beendet werden, z.B. beim Hyundai Ioniq. Der Fehler wird also nach jedem Ausstecken des Ladekabels angezeigt. Ist aber nicht weiter tragisch, ansonsten funktioniert trotzdem alles wie es soll.
 - 12x blinken: Der Schalter zur Wahl zwischen ein- und dreiphasiger Ladung wurde während des Betriebs umgestellt.
 - 13x blinken: Das Elektroauto fordert eine Belüftung an (CP-Spannung ist +3 V)
