@@ -30,9 +30,9 @@ Hier auf GitHub stelle ich sämtliche benötigte Dateien zur Verfügung, mit der
 Bei Fragen und Anregungen stehe ich jederzeit hier, auf GoingElectric.de (Benutzername kepppfeff-ZOE) sowie unter kepppfeff@t-online.de zur Verfügung. 
 
 Meine Empfehlungslinks/-codes:
-&Charge (Bonusprogramm): 10 Freikilometer für jeden über den Link https://and-charge.com/#/invite-friends?code=VKUBDE
-Bonnet App (Ladestrom): 17,55 € Rabatt mit meinem Code RZV554
-JUICIFY (THG-Prämie, Auszahlung innerhalb weniger Tage): HTTPS://JUICIFY.GREEN/?REF=51D5DF
+- &Charge (Bonusprogramm): 10 Freikilometer für jeden über den Link https://and-charge.com/#/invite-friends?code=VKUBDE
+- Bonnet App (Ladestrom): 17,55 € Rabatt mit meinem Code RZV554
+- JUICIFY (THG-Prämie, Auszahlung innerhalb weniger Tage): HTTPS://JUICIFY.GREEN/?REF=51D5DF
 
 ![Rückseite](/Bilder/ZOE%20Box%20R%C3%BCckseite.JPG)
 
